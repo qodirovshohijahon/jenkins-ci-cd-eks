@@ -33,7 +33,7 @@ node {
         withDockerServer([uri: "tcp://localhost:4243"]) {
 
             withDockerRegistry([credentialsId: "dockerhub", url: "https://index.docker.io/v1/"]) {
-            image = docker.build("sherqodirov/mywebapp", "MyAwesomeApp")
+            image = docker.build("sherqodirov/mywebapp")
             image.push()
             
             }
