@@ -39,15 +39,15 @@ node {
         }
     }
     
-    stage ('Kubernetes Deploy') {
-        kubernetesDeploy(
-                configs: 'springboot-docker-hub.yaml',
-                kubeconfigId: 'jenkins-eks-config',
-                enableConfigSubstitution: true
-            )
-    }
-
-    // stage ('Kubernetes Deploy using Kubectl') {
-    //       sh "kubectl apply -f springBootDeploy.yml"
+    // stage ('Kubernetes Deploy') {
+    //     kubernetesDeploy(
+    //             configs: 'springboot-docker-hub.yaml',
+    //             kubeconfigId: 'jenkins-eks-config',
+    //             enableConfigSubstitution: true
+    //         )
     // }
+
+    stage ('Kubernetes Deploy using Kubectl') {
+          sh "kubectl apply -f springboot-docker-hub.yaml"
+    }
 }
