@@ -30,7 +30,7 @@ node {
         
     stage ('Docker Build') {
          // Build and push image with Jenkins' docker-plugin
-        withDockerServer([uri: "tcp://localhost:29575"]) {
+        withDockerServer([uri: "unix:///var/run/docker.sock"]) {
 
             withDockerRegistry([credentialsId: "dockerhub", url: "https://index.docker.io/v1/"]) {
             image = docker.build("sherqodirov/mywebapp")
