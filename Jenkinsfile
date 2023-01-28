@@ -20,9 +20,9 @@ node {
         ])
     }
     
-    // stage ('Build') {
-    //         sh 'mvn -f MyAwesomeApp/pom.xml clean install'            
-    //     }
+    stage ('Build') {
+            sh 'mvn -f pom.xml clean install'            
+        }
         
     // stage ('archive') {
     //         archiveArtifacts '**/*.jar'
