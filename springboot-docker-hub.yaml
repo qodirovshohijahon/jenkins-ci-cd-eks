@@ -6,27 +6,28 @@ spec:
   replicas: 2
   selector:
     matchLabels:
-      app: angular-app
+      app: java-app
   template:
     metadata:
       labels:
-        app: angular-app
+        app: java-app
     spec:
       containers:
-      - name: my-angular-app
-        image: akdevopscoaching/springbootapp:latest
+      - name: my-java-app
+        image: sherqodirov/mywebapp:latest
         imagePullPolicy: Always
         ports:
         - containerPort: 8085
-# service type loadbalancer
+# service type ClusterIP | loadbalancer
 ---
 apiVersion: v1
 kind: Service
 metadata:
-  name: angular-app-svc
+  name: java-app-svc
 spec:
+  # type: ClusterIP
   selector:
-    app: angular-app
+    app: java-app
   ports:
     - protocol: TCP
       port: 8085

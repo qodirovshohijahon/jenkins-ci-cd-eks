@@ -22,11 +22,11 @@ node {
     
     stage ('Build') {
             sh 'mvn -f pom.xml clean install'            
-        }
+    }
         
     stage ('archive') {
             archiveArtifacts '**/*.jar'
-        }
+    }
         
     stage ('Docker Build') {
          // Build and push image with Jenkins' docker-plugin
@@ -35,20 +35,19 @@ node {
             withDockerRegistry([credentialsId: "dockerhub", url: "https://index.docker.io/v1/"]) {
             image = docker.build("sherqodirov/mywebapp")
             image.push()
-            
             }
         }
     }
     
-    //    stage('docker stop container') {
-    //         sh 'docker ps -f name=myContainer -q | xargs --no-run-if-empty docker container stop'
-    //         sh 'docker container ls -a -fname=myContainer -q | xargs -r docker container rm'
+    stage ('Kubernetes Deploy') {
+        kubernetesDeploy(
+                configs: 'springboot-docker-hub.yaml',
+                kubeconfigId: 'jenkins-eks-config',
+                enableConfigSubstitution: true
+            )
+    }
 
-    //    }
-
-    // stage ('Docker run') {
-
-    //     image.run("-p 8085:8085 --rm --name myContainer")
-
+    // stage ('Kubernetes Deploy using Kubectl') {
+    //       sh "kubectl apply -f springBootDeploy.yml"
     // }
 }
