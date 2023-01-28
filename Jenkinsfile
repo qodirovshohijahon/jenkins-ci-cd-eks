@@ -14,7 +14,7 @@ node {
                 extensions: [],
                 submoduleCfg: [],
                 userRemoteConfigs:[[
-                    // credentialsId: '9ffd4ee4-3647-4a7d-a357-5e8746463282',
+                    credentialsId: 'githubcred',
                     url: 'https://github.com/qodirovshohijahon/jenkins-ci-cd-eks.git'
                 ]]
         ])
