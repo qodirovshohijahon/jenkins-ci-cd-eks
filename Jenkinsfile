@@ -24,9 +24,9 @@ node {
             sh 'mvn -f pom.xml clean install'            
         }
         
-    // stage ('archive') {
-    //         archiveArtifacts '**/*.jar'
-    //     }
+    stage ('archive') {
+            archiveArtifacts '**/*.jar'
+        }
         
     // stage ('Docker Build') {
     //      // Build and push image with Jenkins' docker-plugin
