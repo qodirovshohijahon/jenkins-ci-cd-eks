@@ -48,6 +48,3 @@ provider "kubernetes" {
   #   args = ["eks", "get-token", "--cluster-name", var.cluster_name]
   # }
 }
-output "endpoint" {
-  value = data.aws_eks_cluster.example.endpoint
-}
