@@ -1,8 +1,8 @@
-resource "kubernetes_deployment" "nginx" {
+resource "kubernetes_deployment" "java-app" {
   metadata {
-    name = "long-live"
+    name = "java-app"
     labels = {
-      App = "longlivethebat"
+      app = "java-app"
     }
   }
 
@@ -10,13 +10,13 @@ resource "kubernetes_deployment" "nginx" {
     replicas = 1
     selector {
       match_labels = {
-        App = "longlivethebat"
+        app = "java-app"
       }
     }
     template {
       metadata {
         labels = {
-          App = "longlivethebat"
+          app = "java-app"
         }
       }
       spec {

@@ -1,10 +1,10 @@
 resource "kubernetes_service" "nginx" {
   metadata {
-    name = "robin"
+    name = "java-app-svc"
   }
   spec {
     selector = {
-      App = kubernetes_deployment.nginx.spec.0.template.0.metadata[0].labels.App
+      app = kubernetes_deployment.nginx.spec.0.template.0.metadata[0].labels.app
     }
     port {
 #      node_port   = 30201
