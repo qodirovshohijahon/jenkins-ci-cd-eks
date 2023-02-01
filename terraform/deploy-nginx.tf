@@ -21,8 +21,8 @@ resource "kubernetes_deployment" "java-app" {
       }
       spec {
         container {
-          image = "nginx:1.7.8"
-          name  = "batman"
+          image = "akdevopscoaching/mywebapp:latest"
+          name  = "java-app"
 
           port {
             container_port = 80
