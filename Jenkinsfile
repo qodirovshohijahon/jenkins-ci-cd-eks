@@ -2,7 +2,7 @@
 node {
   
   def image
-  def mvnHome = tool 'Maven'
+//   def mvnHome = tool 'Maven'
 
     environment {
         // AWS_ACCESS_KEY_ID     = credentials('AWS_ACCESS_KEY_ID')
