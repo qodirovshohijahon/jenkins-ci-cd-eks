@@ -14,7 +14,7 @@ node {
                 extensions: [],
                 submoduleCfg: [],
                 userRemoteConfigs:[[
-                    credentialsId: 'githubcred',
+                    // credentialsId: 'githubcred',
                     url: 'https://github.com/qodirovshohijahon/jenkins-ci-cd-eks.git/'
                 ]]
         ])
@@ -47,7 +47,7 @@ node {
     //         )
     // }
 
-    stage ('Kubernetes Deploy using Kubectl') {
-          sh "kubectl apply -f springboot-docker-hub.yaml"
+    stage ('Terraform Deploy using Kubectl') {
+          sh "terraform apply terraform/"
     }
 }
