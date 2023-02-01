@@ -6,13 +6,12 @@ node {
 
     environment {
         AWS_ACCESS_KEY_ID     =  "AKIAUEE33YYWZTRVBHLJ" //credentials('AWS_ACCESS_KEY_ID')
-        AWS_SECRET_ACCESS_KEY = "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"// credentials('AWS_SECRET_ACCESS_KEY')
+        AWS_SECRET_ACCESS_KEY = "f/E1KDTLD4iOkC0VorJH2Kz7G9/pC2sOo5um6pNK" // credentials('AWS_SECRET_ACCESS_KEY')
         AWS_DEFAULT_REGION = "us-east-1"
         // TF_IN_AUTOMATION      = '1'
         TF_VAR_host=credentials('host')
         TF_VAR_cluster_ca_certificate=credentials('cluster_ca_certificate')
         TF_VAR_cluster_name=credentials('cluster_name')
-
     }
      
      stage ('checkout') {
