@@ -1,13 +1,13 @@
 resource "kubernetes_deployment" "nginx" {
   metadata {
-    name = "long-live-the-bat"
+    name = "long-live"
     labels = {
       App = "longlivethebat"
     }
   }
 
   spec {
-    replicas = 2
+    replicas = 1
     selector {
       match_labels = {
         App = "longlivethebat"
