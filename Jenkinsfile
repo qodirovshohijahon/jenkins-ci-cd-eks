@@ -7,10 +7,10 @@ node {
     environment {
         // AWS_ACCESS_KEY_ID     = credentials('AWS_ACCESS_KEY_ID')
         // AWS_SECRET_ACCESS_KEY = credentials('AWS_SECRET_ACCESS_KEY')
-        TF_IN_AUTOMATION      = '1'
-        host=credentials('host')
-        cluster_ca_certificate=credentials('cluster_ca_certificate')
-        cluster_name=credentials('cluster_name')
+        // TF_IN_AUTOMATION      = '1'
+        TF_VAR_host=credentials('host')
+        TF_VAR_cluster_ca_certificate=credentials('cluster_ca_certificate')
+        TF_VAR_cluster_name=credentials('cluster_name')
 
     }
      
