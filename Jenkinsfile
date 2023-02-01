@@ -40,15 +40,11 @@ node {
     }
     
     stage ("Terraform init") {
-        steps {
-            sh ('pwd && ls -lat && terraform init terraform') 
-        }
+        sh ('pwd && ls -lat && terraform init terraform') 
     }
 
     stage ("Terraform plan") {
-        steps {
-            sh ('terraform plan terraform') 
-        }
+        sh ('terraform plan terraform') 
     }
 
     stage ('Terraform Deploy using Kubectl') {
