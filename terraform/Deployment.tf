@@ -21,7 +21,7 @@ resource "kubernetes_deployment" "java-app" {
       }
       spec {
         container {
-          image = "akdevopscoaching/mywebapp:latest"
+          image = "sherqodirov/mywebapp:latest"
           name  = "java-app"
 
           port {
