@@ -9,7 +9,7 @@ resource "kubernetes_service" "nginx" {
     port {
 #      node_port   = 30201
       port        = 80
-      target_port = 80
+      target_port = 8085
     }
 
     type = "LoadBalancer"

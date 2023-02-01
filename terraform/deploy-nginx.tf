@@ -25,7 +25,7 @@ resource "kubernetes_deployment" "java-app" {
           name  = "java-app"
 
           port {
-            container_port = 80
+            container_port = 8085
           }
 
           resources {
