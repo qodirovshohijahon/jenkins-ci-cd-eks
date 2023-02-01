@@ -40,14 +40,14 @@ node {
     }
     
     stage ("Terraform init") {
-        sh ('pwd && ls -lat && terraform init terraform') 
+        sh ('pwd && ls -lat && terraform -chdir="./terraform" init') 
     }
 
     stage ("Terraform plan") {
-        sh ('terraform plan terraform') 
+        sh ('terraform -chdir="./terraform" plan') 
     }
 
     stage ('Terraform Deploy using Kubectl') {
-          sh "terraform apply --auto-approve ./terraform"
+          sh 'terraform -chdir="./terraform" apply --auto-approve'
     }
 }
