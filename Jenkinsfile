@@ -28,16 +28,16 @@ node {
             archiveArtifacts '**/*.jar'
     }
         
-    stage ('Docker Build') {
-         // Build and push image with Jenkins' docker-plugin
-        withDockerServer([uri: "unix:///var/run/docker.sock"]) {
+    // stage ('Docker Build') {
+    //      // Build and push image with Jenkins' docker-plugin
+    //     withDockerServer([uri: "unix:///var/run/docker.sock"]) {
 
-            withDockerRegistry([credentialsId: "dockerhub", url: "https://index.docker.io/v1/"]) {
-            image = docker.build("sherqodirov/mywebapp")
-            image.push()
-            }
-        }
-    }
+    //         withDockerRegistry([credentialsId: "dockerhub", url: "https://index.docker.io/v1/"]) {
+    //         image = docker.build("sherqodirov/mywebapp")
+    //         image.push()
+    //         }
+    //     }
+    // }
     
     stage ("Terraform init") {
         sh ('pwd && ls -lat && terraform -chdir="./terraform" init') 
