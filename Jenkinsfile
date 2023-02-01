@@ -39,15 +39,19 @@ node {
         }
     }
     
-    // stage ('Kubernetes Deploy') {
-    //     kubernetesDeploy(
-    //             configs: 'springboot-docker-hub.yaml',
-    //             kubeconfigId: 'jenkins-eks-config',
-    //             enableConfigSubstitution: true
-    //         )
-    // }
+    stage ("Terraform init") {
+        steps {
+            sh ('pwd && ls -lat && terraform init terraform') 
+        }
+    }
+
+    stage ("Terraform plan") {
+        steps {
+            sh ('terraform plan terraform') 
+        }
+    }
 
     stage ('Terraform Deploy using Kubectl') {
-          sh "terraform apply terraform/"
+          sh "terraform apply --auto-approve ./terraform"
     }
 }
