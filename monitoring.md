@@ -6,6 +6,25 @@ If you already have Helm installed, you can check your version with the `helm ve
 Helm is a package manager for Kubernetes clusters. 
 For more information about Helm and how to install it, see Using Helm with Amazon EKS.
 
+### To deploy Prometheus using Helm
+- Create a Prometheus namespace.
+  - `kubectl create namespace prometheus`
+- Add the prometheus-community chart repository.
+  - `helm repo add prometheus-community https://prometheus-community.github.io/helm-charts`
+- Deploy Prometheus.
+  - `helm upgrade -i prometheus prometheus-community/prometheus \ --namespace prometheus \ --set alertmanager.persistentVolume.storageClass="gp2",server.persistentVolume.storageClass="gp2"`
+- Verify that all of the pods in the prometheus namespace are in the READY state.
+  - `kubectl get pods -n prometheus`
+- Use kubectl to port forward the Prometheus console to your local machine.
+  - `kubectl --namespace=prometheus port-forward deploy/prometheus-server 9090`
+- Point a web browser to `localhost:9090` to view the Prometheus console.
+- Choose a metric from the - **insert metric at cursor** menu, then choose **Execute**. Choose the **Graph** tab to show the metric over time. The following image shows `container_memory_usage_bytes` over time.
+
+
+
+----------------------
+
+
 
 ### Using Helm with Amazon EKS
 The Helm package manager for Kubernetes helps you install and manage applications on your Kubernetes cluster.
